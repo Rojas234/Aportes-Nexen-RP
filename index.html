@@ -3,169 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aportes Rojas | SA:MP Community</title>
+    <title>Aportes Rojas | Panel de Carga</title>
     <style>
         :root {
-            --color-principal: #f39c12; /* Naranja clásico estilo GTA */
-            --fondo-oscuro: #1a1a1a;
-            --tarjeta: #2c2c2c;
-            --texto: #e0e0e0;
+            --gta-orange: #f39c12;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --input-bg: #2a2a2a;
+            --text: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--fondo-oscuro);
-            color: var(--texto);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
             margin: 0;
-            line-height: 1.6;
+            padding: 0;
         }
 
-        /* Encabezado Estilo Gaming */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.alphacoders.com/439/439401.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 4px solid var(--color-principal);
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--gta-orange);
         }
 
         header h1 {
-            font-size: 3.5rem;
             margin: 0;
-            text-transform: uppercase;
-            text-shadow: 3px 3px #000;
-            color: var(--color-principal);
+            color: var(--gta-orange);
+            letter-spacing: 2px;
         }
 
-        /* Barra de Navegación */
-        nav {
-            background: #111;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .main-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
         }
 
-        nav a {
+        /* Sección del Formulario */
+        .upload-section {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border: 1px solid #333;
+        }
+
+        .upload-section h2 {
+            margin-top: 0;
+            color: var(--gta-orange);
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            background: var(--input-bg);
+            border: 1px solid #444;
             color: white;
-            text-decoration: none;
-            margin: 0 15px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn-post {
+            background: var(--gta-orange);
+            color: black;
+            border: none;
+            padding: 12px 20px;
             font-weight: bold;
             text-transform: uppercase;
-            transition: color 0.3s;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
         }
 
-        nav a:hover {
-            color: var(--color-principal);
+        .btn-post:hover {
+            background: #e67e22;
         }
 
-        /* Grid de Contenido */
-        .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        /* Lista de Aportes */
+        .feed-section h2 {
+            border-left: 4px solid var(--gta-orange);
+            padding-left: 10px;
+            margin-bottom: 20px;
         }
 
-        .card {
-            background: var(--tarjeta);
+        .aporte-item {
+            background: var(--card-bg);
+            padding: 15px;
             border-radius: 8px;
-            padding: 1.5rem;
-            border-left: 4px solid var(--color-principal);
-            transition: transform 0.3s;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #333;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .aporte-info h3 {
+            margin: 0;
+            color: var(--gta-orange);
         }
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--color-principal);
+        .aporte-info p {
+            margin: 5px 0 0;
+            font-size: 0.85rem;
+            color: #bbb;
         }
 
-        .tag {
-            background: #444;
-            padding: 3px 8px;
+        .btn-dl {
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
             border-radius: 4px;
             font-size: 0.8rem;
-            margin-right: 5px;
         }
 
-        .btn-download {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 8px 16px;
-            background: var(--color-principal);
-            color: black;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #111;
-            margin-top: 3rem;
-            border-top: 1px solid #333;
+        .btn-dl:hover {
+            background: #444;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Aportes Rojas</h1>
-        <p>Recursos, Scripts y Modding para SA:MP</p>
-    </header>
+<header>
+    <h1>APORTES ROJAS</h1>
+</header>
 
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#">CLEO Mods</a>
-        <a href="#">Sistemas Pawno</a>
-        <a href="#">Mapas</a>
-        <a href="#">Discord</a>
-    </nav>
+<div class="main-container">
+    
+    <section class="upload-section">
+        <h2>Subir Nuevo Aporte</h2>
+        <div class="form-group">
+            <label>Título del Mod/Script</label>
+            <input type="text" placeholder="Ej: Velocímetro Realista v2">
+        </div>
+        <div class="form-group">
+            <label>Descripción corta</label>
+            <textarea rows="2" placeholder="Explica brevemente qué hace tu aporte..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Enlace de descarga (Mediafire/Mega/GitHub)</label>
+            <input type="url" placeholder="https://...">
+        </div>
+        <button class="btn-post">Publicar Aporte</button>
+    </section>
 
-    <div class="container">
+    <section class="feed-section">
+        <h2>Últimas Publicaciones</h2>
         
-        <div class="card">
-            <h3>Sistema de Concesionario</h3>
-            <p>Un sistema avanzado en PAWN para la compra y venta de vehículos con guardado en MySQL.</p>
-            <span class="tag">PAWN</span> <span class="tag">MySQL</span>
-            <br>
-            <a href="#" class="btn-download">Ver Código</a>
+        <div class="aporte-item">
+            <div class="aporte-info">
+                <h3>Pack de Skins LSPD</h3>
+                <p>Nuevas texturas en HD para el departamento de policía.</p>
+            </div>
+            <a href="#" class="btn-dl">Descargar</a>
         </div>
 
-        <div class="card">
-            <h3>CLEO: Anti-Crash v2.0</h3>
-            <p>Optimiza la carga de texturas y evita cierres inesperados en zonas de alto tráfico de mapeos.</p>
-            <span class="tag">CLEO</span> <span class="tag">Asi</span>
-            <br>
-            <a href="#" class="btn-download">Descargar</a>
+        <div class="aporte-item">
+            <div class="aporte-info">
+                <h3>Filtrado de Chat CLEO</h3>
+                <p>Oculta mensajes molestos del servidor automáticamente.</p>
+            </div>
+            <a href="#" class="btn-dl">Descargar</a>
         </div>
 
-        <div class="card">
-            <h3>Estado del Servidor</h3>
-            <p><strong>IP:</strong> server.aportesrojas.com:7777</p>
-            <p><strong>Jugadores:</strong> 45 / 100</p>
-            <p><strong>Modo:</strong> Roleplay Latino</p>
-            <span class="tag" style="background: green;">Online</span>
-        </div>
-
-    </div>
-
-    <footer>
-        &copy; 2026 Aportes Rojas - Creado para la comunidad de SA:MP
-    </footer>
+    </section>
+</div>
 
 </body>
 </html>
